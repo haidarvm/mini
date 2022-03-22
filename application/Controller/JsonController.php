@@ -2,7 +2,7 @@
 
 namespace Mini\Controller;
 
-use Mini\Model\Posts;
+// use Mini\Model\Posts;
 // use Mini\Model\Postc;
 // use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
