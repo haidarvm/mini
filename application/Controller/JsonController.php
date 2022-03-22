@@ -13,7 +13,7 @@ class JsonController {
     protected $posts;
     protected $postc;
     public function __construct() {
-        $this->posts = new Posts();
+        // $this->posts = new Posts();
         // $this->postc = new Postc();
         $this->request =  Request::createFromGlobals();
     }
