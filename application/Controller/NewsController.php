@@ -3,20 +3,24 @@
 namespace Mini\Controller;
 
 use Mini\Model\Posts;
+// use Mini\Model\Postc;
 // use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
+// use Symfony\Component\HttpFoundation\JsonResponse;
+// use Symfony\Component\HttpFoundation\Request;
 
 class NewsController {
     protected $request;
     protected $posts;
+    protected $postc;
     public function __construct() {
         $this->posts = new Posts();
-        $this->request =  Request::createFromGlobals();
+        // $this->postc = new Postc();
+        // $this->request =  Request::createFromGlobals();
     }
     public function index() {
         $data['number'] = rand(1, 7050);
-        $data['post'] = $this->posts->getPost($data['number'])->data;
+        // $data['post'] = $this->posts->getPost($data['number'])->data;
+        $data['post'] = $this->postc->getPostc($data['number']);
         // var_dump($data['post']);
         view('template/header.php');
         view('template/menu.php');
@@ -50,13 +54,22 @@ class NewsController {
 
     public function json() {
         $number = rand(1, 7050);
-        $post = $this->posts->getPost($number)->data;
+        $data['number'] = $number;
+        $data['data'] = $this->posts->getPosts($number)->data;
         header('Content-Type: application/json');
-        echo json_encode($post);
+        echo json_encode($data);
+    }
+
+    public function jsonc() {
+        $number = rand(1, 7050);
+        $data['number'] = $number;
+        $data['data'] = $this->postc->getPostc($number);
+        header('Content-Type: application/json');
+        echo json_encode($data);
     }
 
     public function one($id) {
-        $post = $this->posts->getPost($id)->data;
+        $post = $this->posts->getPostOne($id)->data;
         header('Content-Type: application/json');
         echo json_encode($post);
     }

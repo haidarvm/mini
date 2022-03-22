@@ -25,12 +25,13 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 - uses only native PHP code, so people don't have to learn a framework
 - uses PSR-4 autoloader
 - REST API support with symfony http component
-- Simple Active Record for databae 
+- Simple Micro Active Record for database 
 
 ## New Compononets
 - active record for simple database tools
 - symfony http component for REST API 
 - dotenv 
+- logger
 
 ## Requirements
 - PHP 5.6 or PHP 7.x (PHP 8.0 also work fine)

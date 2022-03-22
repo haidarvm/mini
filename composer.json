@@ -17,7 +17,7 @@
     "require": {
         "bephp/activerecord": "^2.2",
         "symfony/http-foundation": "^6.0",
-        "vlucas/phpdotenv": "5.4.x-dev"
+        "guzzlehttp/guzzle": "^7.0"
     },
     "autoload":
     {

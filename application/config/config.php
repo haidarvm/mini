@@ -43,6 +43,7 @@ if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
  * then replace this line with full URL (and sub-folder) and a trailing slash.
  */
 
+
 define('URL_PUBLIC_FOLDER', 'public');
 define('URL_PROTOCOL', '//');
 define('URL_DOMAIN', $_SERVER['HTTP_HOST']);
@@ -53,10 +54,11 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
  */
-define('DB_TYPE',  getenv('DB_TYPE'));
+$ini = parse_ini_file(ROOT.".env", false, INI_SCANNER_RAW);
+define('DB_TYPE',  $ini['DB_TYPE']);
 define('DB_HOST', 'localhost');
-define('DB_NAME', getenv('DB_NAME'));
-define('DB_USER', getenv('DB_USER'));
-define('DB_PASS',  getenv('DB_PASS'));
-define('DB_PREFIX', getenv('DB_PREFIX'));
+define('DB_NAME', $ini['DB_NAME']);
+define('DB_USER', $ini['DB_USER']);
+define('DB_PASS',  $ini['DB_PASS']);
+define('DB_PREFIX', $ini['DB_PREFIX']);
 define('DB_CHARSET', 'utf8mb4');
