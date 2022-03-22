@@ -24,6 +24,12 @@ class JsonController {
         return $response->send();
     }
 
+    public function raw() {
+        $raw = json_decode($this->request->getContent(), true);
+        $response = new JsonResponse($raw);
+        return $response->send();
+    }
+
     public function hello() {
         $response = new JsonResponse(['Hello' => "World"]);
         return $response->send();
