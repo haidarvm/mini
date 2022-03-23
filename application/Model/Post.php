@@ -12,6 +12,9 @@ class Post extends HiModel {
         return $this->where('id =' . $id)->find();
     }
 
+    public function getAllPost() {
+        return $this->orderby('id desc')->limit(10)->findAll();
+    }
 
     public function insertPost($data){ 
         $this->body = $data;

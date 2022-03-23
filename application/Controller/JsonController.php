@@ -18,9 +18,9 @@ class JsonController {
         $this->request =  Request::createFromGlobals();
     }
     public function index() {
-        $message = $this->request->get('message');
         // print_r($this->$request->get('message'));
-        $response = new JsonResponse([$message]);
+        $data = $this->post->getAllPost();
+        $response = new JsonResponse([$data]);
         return $response->send();
     }
 
