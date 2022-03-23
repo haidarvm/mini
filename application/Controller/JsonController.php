@@ -26,6 +26,7 @@ class JsonController {
 
     public function raw() {
         $raw = json_decode($this->request->getContent(), true);
+        $raw['pesan'] = "berhasil";
         $response = new JsonResponse($raw);
         return $response->send();
     }
