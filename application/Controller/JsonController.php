@@ -30,8 +30,10 @@ class JsonController {
             // print_r($raw);
             $this->post->body = json_encode($raw);
             $this->post->insert();
+            $raw['message'] = "success";
+        } else {
+            $raw['message'] = 'empty';
         }
-        $raw['pesan'] = "berhasil";
         $response = new JsonResponse($raw);
         return $response->send();
     }
