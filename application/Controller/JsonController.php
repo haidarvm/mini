@@ -28,6 +28,8 @@ class JsonController {
         $raw = json_decode($this->request->getContent(), true);
         if(!empty($raw)) {
             // print_r($raw);
+            $headers = $this->request->headers->all();
+            $this->post->headers = json_encode($headers); 
             $this->post->body = json_encode($raw);
             $this->post->insert();
             $raw['message'] = "success";
