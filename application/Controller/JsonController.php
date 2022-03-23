@@ -2,7 +2,7 @@
 
 namespace Mini\Controller;
 
-// use Mini\Model\Posts;
+use Mini\Model\Post;
 // use Mini\Model\Postc;
 // use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,7 +13,7 @@ class JsonController {
     protected $posts;
     protected $postc;
     public function __construct() {
-        // $this->posts = new Posts();
+        $this->post = new Post();
         // $this->postc = new Postc();
         $this->request =  Request::createFromGlobals();
     }
@@ -26,6 +26,11 @@ class JsonController {
 
     public function raw() {
         $raw = json_decode($this->request->getContent(), true);
+        if(!empty($raw)) {
+            // print_r($raw);
+            $this->post->body = json_encode($raw);
+            $this->post->insert();
+        }
         $raw['pesan'] = "berhasil";
         $response = new JsonResponse($raw);
         return $response->send();
