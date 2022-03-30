@@ -18,6 +18,13 @@ class JsonController {
         $this->request =  Request::createFromGlobals();
     }
     public function index() {
+        $data['post'] = $this->post->getAllPost();
+        view('templates/header.php');
+        view('home/json.php', $data);
+        view('templates/footer.php');
+    }
+
+    public function datas()  {
         // print_r($this->$request->get('message'));
         $data = $this->post->getAllPost();
         $response = new JsonResponse([$data]);
@@ -45,5 +52,12 @@ class JsonController {
         return $response->send();
     }
 
+    public function geta() {
+        $data['headers'] = $this->request->headers->all();
+        $data['message'] = $this->request->get('message');
+        print_r($data);
+        $response = new JsonResponse($data);
+        return $response->send();
+    }
     
 }

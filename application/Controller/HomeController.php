@@ -22,9 +22,9 @@ class HomeController
     public function index()
     {
         // load views
-        view('_templates/header.php');
+        view('templates/header.php');
         view('home/index.php');
-        view('_templates/footer.php');
+        view('templates/footer.php');
 
     }
 
@@ -59,9 +59,9 @@ class HomeController
     public function exampleOne()
     {
         // load views
-        view('_templates/header.php');
+        view('templates/header.php');
         view('home/example_one.php');
-        view('_templates/footer.php');
+        view('templates/footer.php');
     }
 
     /**
@@ -72,8 +72,8 @@ class HomeController
     public function exampleTwo()
     {
         // load views
-        view('_templates/header.php');
+        view('templates/header.php');
         view('home/example_two.php');
-        view('_templates/footer.php');
+        view('templates/footer.php');
     }
 }
